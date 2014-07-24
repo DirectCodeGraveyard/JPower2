@@ -1,0 +1,28 @@
+def moduleDir = new File("${rootDir}/modules")
+
+/* Find Modules */
+moduleDir.eachDir { dir ->
+    include dir.name /* Include the Module */
+}
+
+boolean fileExists(File rootDir = null, String name) {
+    if (rootDir != null)
+        return new File(rootDir, name).exists()
+    else
+        return new File("name").exists()
+}
+
+rootProject.children.each { prj ->
+    def prjDir = prj.projectDir = new File(moduleDir, prj.name)
+    if (fileExists(prjDir, "build.gradle")) {
+         prj.buildFileName = "build.gradle"
+    } else if (fileExists(prjDir, "${prj.name}.gradle")) {
+         prj.buildFileName = "${prj.name}.gradle"
+    } else if (fileExists(prjDir, "module.gradle")) {
+         prj.buildFileName = "module.gradle"
+    } else {
+         throw new RuntimeException("module '${prj.name}': unable to find build script")
+    }
+}
+
+rootProject.name = "JPower"
