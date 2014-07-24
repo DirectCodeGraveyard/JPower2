@@ -1,6 +1,6 @@
 package jpower.core;
 
-public class Package
+public class Platform
 {
 
     public static String getProcessorArchitecture()
