@@ -4,6 +4,10 @@ apply plugin: "idea"
 apply plugin: "eclipse"
 apply plugin: "project-report"
 apply plugin: 'build-announcements'
+apply plugin: "java"
+apply plugin: "maven"
+apply plugin: "maven-publish"
+apply plugin: "signing"
 
 [dependencyReport, htmlDependencyReport].each { t ->
     t.projects = subprojects

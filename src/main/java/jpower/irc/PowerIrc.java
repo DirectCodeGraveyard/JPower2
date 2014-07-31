@@ -125,8 +125,8 @@ public class PowerIrc
    /**
     * Send the nick command.
     * @param nick nick to set/change
-    * @TODO Add support for nick-in-use
     */
+    //@TODO Add support for nick-in-use
    public void nick(String nick)
    {
       writeline("NICK " + nick);
@@ -278,6 +278,7 @@ public class PowerIrc
    /**
     * Check if a prefix is for another client.
     * @param input string to check for hostmask
+    * @return if input is hostmask prefix
     */
    public boolean isHostmask(String input)
    {
@@ -288,6 +289,7 @@ public class PowerIrc
    /**
     * Check if a prefix is for a server.
     * @param input string to check for server
+    * @return if input is server prefix
     */
    public boolean isServer(String input)
    {
@@ -299,6 +301,7 @@ public class PowerIrc
    /**
     * Parse a hostmask, and create a user with the supplied information.
     * @param hostmask hostmask to parse
+    * @return user instance
     */
    public User parseHostmask(String hostmask)
    {
