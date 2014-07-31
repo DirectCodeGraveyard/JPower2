@@ -37,7 +37,7 @@ class ReleaseTask extends DefaultTask {
             {
                 logger.lifecycle "Creating Tag v${project.version}"
                 project.exec {
-                    commandLine "git", "tag", "v${project.version}"
+                    commandLine "git", "tag", "-s", "v${project.version}", "-m", "v${project.version}"
                 }
             }
 
