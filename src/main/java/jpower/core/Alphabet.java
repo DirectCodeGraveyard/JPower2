@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Alphabet
 {
 
-    private static char[] ALPHABET = 
+    private static final char[] LOWERCASE = new char[]
     {
         'a', 'b', 'c', 'd', 'e',
         'f', 'g', 'h', 'i', 'j',
@@ -18,52 +18,56 @@ public class Alphabet
         'z'
     };
 
-    private static char[] UPPERCASE;
-
-    static
+    private static final char[] UPPERCASE = new char[]
     {
-        for (int i = 0; i < ALPHABET.length; i++)
-        {
-            UPPERCASE[i] = Character.toUpperCase(ALPHABET[i]);
-        }
-    }
+        'A', 'B', 'C', 'D', 'E',
+        'F', 'G', 'H', 'I', 'J',
+        'K', 'L', 'M', 'N', 'O',
+        'P', 'Q', 'R', 'S', 'T',
+        'U', 'V', 'W', 'X', 'Y',
+        'Z'
+    };
 
     public static char[] lowercase()
     {
-        return Arrays.copyOfRange(ALPHABET, 0, ALPHABET.length);
+        return LOWERCASE;
     }
 
     public static char[] uppercase()
     {
-        return Arrays.copyOfRange(UPPERCASE, 0, UPPERCASE.length);
+        return UPPERCASE;
     }
 
     public static char get(int index)
     {
-        return ALPHABET[index];
+        if (index > length() || index < length())
+        {
+            throw new IndexOutOfBoundsException();
+        }
+        return LOWERCASE[index];
     }
 
     public static int length()
     {
-        return ALPHABET.length;
+        return LOWERCASE.length;
     }
 
     public static char[] getRange(boolean capital, int index)
     {
-        if (index < 0 || index > ALPHABET.length)
+        if (index < 0 || index > LOWERCASE.length)
         {
             throw new IndexOutOfBoundsException();
         }
-        return Arrays.copyOfRange((capital ? UPPERCASE : ALPHABET), index, ALPHABET.length);
+        return Arrays.copyOfRange((capital ? UPPERCASE : LOWERCASE), index, LOWERCASE.length);
     }
 
     public static char[] getRange(boolean capital, int firstIndex, int lastIndex)
     {
-        if (firstIndex < 0 || firstIndex > ALPHABET.length | lastIndex < 0 || lastIndex > ALPHABET.length)
+        if (firstIndex < 0 || firstIndex > LOWERCASE.length | lastIndex < 0 || lastIndex > LOWERCASE.length)
         {
             throw new IndexOutOfBoundsException();
         }
-        return Arrays.copyOfRange((capital ? UPPERCASE : ALPHABET), firstIndex, lastIndex);
+        return Arrays.copyOfRange((capital ? UPPERCASE : LOWERCASE), firstIndex, lastIndex);
     }
 
 }
