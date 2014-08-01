@@ -30,12 +30,12 @@ public class Alphabet
 
     public static char[] lowercase()
     {
-        return ALPHABET;
+        return Arrays.copyOfRange(ALPHABET, 0, ALPHABET.length);
     }
 
     public static char[] uppercase()
     {
-        return UPPERCASE;
+        return Arrays.copyOfRange(UPPERCASE, 0, UPPERCASE.length);
     }
 
     public static char get(int index)

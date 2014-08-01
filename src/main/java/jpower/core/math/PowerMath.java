@@ -1,4 +1,4 @@
-package jpower.core;
+package jpower.core.math;
 
 import java.math.BigInteger;
 
