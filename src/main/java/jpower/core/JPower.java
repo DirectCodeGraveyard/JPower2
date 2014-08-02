@@ -26,7 +26,7 @@ public class JPower
         release = new Release(info);
     }
 
-    public static Release getRelease()
+    public static Release getReleaseInfo()
     {
         return release;
     }
