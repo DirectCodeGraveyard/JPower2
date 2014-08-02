@@ -1,3 +1,7 @@
+// ./gradlew is your portal to Gradle
+// If you're unfortunate enough to run Windows,
+// you need to use ./gradlew.bat
+
 apply from: "gradle/plugins.gradle"
 
 group = "org.directcode.jpower"
