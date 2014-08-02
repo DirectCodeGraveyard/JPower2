@@ -1,4 +1,4 @@
-# JPower [![Build Status](http://goo.gl/t9TsjZ)](http://goo.gl/x0mb1X)
+# JPower [![Build Status](https://drone.io/github.com/DirectMyFile/JPower/status.png)](https://drone.io/github.com/DirectMyFile/JPower/latest)
 
 JPower is an ultimate set of Java utilities, packaged into one library.
 
