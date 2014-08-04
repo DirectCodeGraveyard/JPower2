@@ -1,0 +1,6 @@
+jpower.core
+jpower.core.internal
+jpower.core.utils
+jpower.event
+jpower.irc
+jpower.socket

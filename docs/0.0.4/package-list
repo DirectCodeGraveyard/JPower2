@@ -1,0 +1,12 @@
+jpower.core
+jpower.core.internal
+jpower.core.math
+jpower.core.out
+jpower.core.utils
+jpower.event
+jpower.gui
+jpower.gui.internal
+jpower.irc
+jpower.json
+jpower.json.serialization
+jpower.socket
