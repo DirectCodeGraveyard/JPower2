@@ -1,4 +1,4 @@
-package jpower.core.math;
+package jpower.math;
 
 import java.math.BigInteger;
 
@@ -44,7 +44,7 @@ public class PowerMath
      * @param numbers input numbers
      * @return smallest number
      */
-    public static int getSmallest(int... numbers)
+    public static int min(int... numbers)
     {
         int smallest = numbers[0];
         for (int i : numbers)
@@ -62,7 +62,7 @@ public class PowerMath
      * @param numbers input numbers
      * @return largest numbers
      */
-    public static int getLargest(int... numbers)
+    public static int max(int... numbers)
     {
         int largest = numbers[0];
         for (int i : numbers)
@@ -73,6 +73,15 @@ public class PowerMath
             }
         }
         return largest;
+    }
+
+    public static int mean(int... numbers)
+    {
+        int total = 0;
+        for (int i : numbers) {
+            total += i;
+        }
+        return (total / numbers.length);
     }
 
 }
