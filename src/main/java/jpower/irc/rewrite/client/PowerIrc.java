@@ -37,7 +37,7 @@ public class PowerIrc
    private List<String> motd;
    private Map<String, User> users;
    private Map<String, Channel> channels;
-   private List<String> initial_channels;
+   private List<String> initialChannels;
 
    protected PowerIrc(String username, String nickname, String realname, ServerHostname server, List<String> initial_channels)
    {
@@ -45,6 +45,7 @@ public class PowerIrc
       this.nickname = nickname;
       this.realname = realname;
       this.server = server;
+      this.initialChannels = initial_channels;
 
       //me = new User(this, username, nickname);
 
@@ -54,7 +55,6 @@ public class PowerIrc
       motd = new ArrayList<>();
       users = new HashMap<>();
       channels = new HashMap<>();
-      this.initial_channels = initial_channels;
    }
 
    private void connect()
@@ -69,8 +69,8 @@ public class PowerIrc
       {
          e.printStackTrace();
       }
-      //worker = new Reader();
-      //worker.start();
+      // TODO worker = new Reader();
+      // TODO worker.start();
       nick(nickname);
       user(username, realname);
    }
@@ -108,6 +108,28 @@ public class PowerIrc
    private void user(String username, String realname)
    {
       writeline("USER " + username + " 8 * :" + realname);
+   }
+
+   public void join(String channel)
+   {
+      writeline("JOIN " + channel);
+      // TODO eventBus.post(new JoinEvent(channel));
+   }
+
+   public void part(String channel)
+   {
+      writeline("PART " + channel);
+      // TODO eventBus.post(new PartEvent());
+   }
+
+   private void joinChannels()
+   {
+      initialChannels.forEach(this::join);
+   }
+
+   public void privmsg(User user, String message)
+   {
+      // TODO writeline("PRIVMSG " + user.getNickname() + " :" + message);
    }
 
 }
